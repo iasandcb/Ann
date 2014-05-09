@@ -1,7 +1,7 @@
 <div class="row" ng-init="getList()">
     <div class="col-md-12">
-        <span ng-repeat="tag in tags">
-            <button type="button" class="btn btn-default" btn-checkbox ng-click="chooseTag($event, tag)">{{tag.name}}</button>
+        <span class="badge badge-default" style="cursor:pointer" ng-repeat="tag in tags" ng-click="chooseTag($event, tag)">
+             {{tag.name}}
         </span>
     </div>
 </div>

@@ -1,6 +1,8 @@
     define ['app', 'jquery'], (app, $) ->
         app.register.controller "ServiceCtrl", ["$scope", "serviceModel", "tagModel", ($scope, serviceModel, tagModel) ->
             # $('body').css({'background-color': 'black'})
+            $('#serviceMenu').addClass 'active'
+            $('#companyMenu').removeClass 'active'
             $scope.getList = ->
                 serviceModel.findDataSet {}, (result) ->
                     if result.hasError is false
