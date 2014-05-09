@@ -1,0 +1,24 @@
+    define ['app', 'jquery'], (app, $) ->
+        app.register.controller "CompanyCtrl", ["$scope", "companyModel", ($scope, companyModel) ->
+
+            $scope.getList = ->
+                companyModel.findDataSet {filter: {}}, (result) ->
+                    if result.hasError is false
+                        $scope.companies = result.savedDataSet
+                        $scope.$apply()
+                    return
+                return
+
+            $scope.register = ->
+                await companyModel.create
+                    name: $scope.name
+                    , defer result
+
+                if result.hasError is false
+                    $('#result').html('Registration is completed')
+                    $scope.getList()
+
+                return
+            return
+            ]
+        return

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Anna</title>
+<script>
+var reloadServer = (location.host || 'localhost').split(':')[0]
+if (reloadServer.indexOf('192.168') == 0 || reloadServer === 'localhost') {
+    document.write('<script src="http://'
+        + reloadServer
+        + ':35729/livereload.js"></'
+        + 'script>')
+}
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="/__SCRIPT"></script>
+    <script data-main="js/main.js" src="lib/requirejs/require.js"></script>
+    <title>Market</title>
+</head>
+<body>
+    <div ng-view class="container"></div>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/bootflat.min.css">
+
+		<!-- Latest compiled and minified JavaScript
+    -->
+</body>
+</html>
