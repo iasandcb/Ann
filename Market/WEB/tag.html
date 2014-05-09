@@ -1,0 +1,15 @@
+<div class="row" ng-init="getList()">
+    <div class="col-md-12">
+        <span ng-repeat="tag in tags">
+            <button type="button" class="btn btn-default" data-toggle="button" ng-click="chooseTag($event, tag)">{{tag.name}}</button>
+        </span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul>
+            <li ng-repeat="service in services"><a href="#service/{{service.id}}">{{service.name}}</a>
+        </ul>
+    </div>
+</div>

@@ -28,6 +28,9 @@
         app.factory 'commentModel', ->
             Market.CommentModel()
 
+        app.factory 'tagModel', ->
+            Market.TagModel()
+
         app.config (ezfbProvider) ->
             ezfbProvider.setInitParams
                 appId: '217817081761575'
@@ -40,6 +43,9 @@
                 $routeProvider.when("/home", angularAMD.route(
                     templateUrl: "home.html"
                     controller: "HomeCtrl"
+                )).when("/tag", angularAMD.route(
+                    templateUrl: "tag.html"
+                    controller: "TagCtrl"
                 )).when("/company", angularAMD.route(
                     templateUrl: "company.html"
                     controller: "CompanyCtrl"
@@ -53,7 +59,7 @@
             ]
 
       # Define constant to be used by Google Analytics
-        app.constant "SiteName", "/angularAMD"
+        # app.constant "SiteName", "/angularAMD"
 
       # Create function to link to GitHub
       # Bootstrap Angular when DOM is ready

@@ -14,6 +14,7 @@
             'CompanyCtrl': 'company'
             'ServiceCtrl': 'service'
             'ServiceDetailCtrl': 'service-detail'
+            'TagCtrl': 'tag'
 
         shim:
             'angularAMD': ['angular']

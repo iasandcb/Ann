@@ -5,6 +5,7 @@
             Market.CompanyModel()
             Market.ServiceModel()
             Market.CommentModel()
+            Market.TagModel()
             jn = require 'jasmine-node'
             Market.REQUEST 'test', (method, params, paramStr, headers, response, serveErrorPage) ->
                 jn.run
