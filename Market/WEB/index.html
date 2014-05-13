@@ -18,7 +18,7 @@ if (reloadServer.indexOf('192.168') == 0 || reloadServer === 'localhost') {
     <title>Market</title>
 </head>
 <body>
-    <div class="navbar navbar-default" role="navigation">
+    <div ng-controller="MenuCtrl" class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <a class="navbar-brand">Ann's Market</a>
         </div>
@@ -30,8 +30,11 @@ if (reloadServer.indexOf('192.168') == 0 || reloadServer === 'localhost') {
                 <li id="tagMenu"><a href="#/tag">Tag</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><button class="btn btn-warning navbar-btn" ng-click="login()" ng-if="loginStatus.status == 'connected'">Connect with Facebook</button></li>
-                <li><button class="btn btn-danger" ng-click="logout()" ng-if="!loginStatus || loginStatus.status != 'connected'">Logout</button></li>
+                <!--  ng-if="loginStatus.status == 'connected'"
+                 ng-if="!loginStatus || loginStatus.status != 'connected'"
+                -->
+                <li><button id="loginButton" class="btn btn-warning navbar-btn" ng-click="login()">Connect with Facebook</button></li>
+                <li><button id="logoutButton" class="btn btn-danger" ng-click="logout()">Logout</button></li>
             </ul>
         </div>
     </div>

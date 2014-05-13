@@ -15,9 +15,10 @@
 
     define [
         "angularAMD"
+        'jquery'
         "angular-route"
         "ezfb"
-    ], (angularAMD) ->
+    ], (angularAMD, $) ->
         app = angular.module("ngreq-app", ["ngRoute", 'ezfb'])
         app.factory 'companyModel', ->
             Market.CompanyModel()
@@ -57,6 +58,56 @@
                     controller: "ServiceDetailCtrl"
                 )).otherwise redirectTo: "/home"
             ]
+
+        app.controller "MenuCtrl", ($scope, $window, $location, $timeout, ezfb) ->
+            $scope.safeApply = (fn) ->
+                phase = @$root.$$phase
+                if phase is "$apply" or phase is "$digest"
+                    console.log 'in'
+                    @$eval fn
+                else
+                    console.log 'out'
+                    @$apply fn
+
+                console.log $scope.loginStatus
+
+                return
+
+            updateLoginStatus = (more) ->
+                ezfb.getLoginStatus (res) ->
+                    $scope.loginStatus = res
+                    if res.status is 'connected'
+                        $('#loginButton').hide()
+                        $('#logoutButton').show()
+                    else
+                        $('#logoutButton').hide()
+                        $('#loginButton').show()
+
+                    (more || angular.noop)()
+                    return
+                return
+
+            updateApiMe = ->
+                console.log 'me'
+                return
+
+            updateLoginStatus updateApiMe
+
+            $scope.login = ->
+                ezfb.login (res) ->
+                    if res.authResponse
+                        updateLoginStatus updateApiMe
+                    return
+                return
+
+            $scope.logout = ->
+                ezfb.logout ->
+                    updateLoginStatus updateApiMe
+                    console.log 'out'
+                    return
+                return
+
+            return
 
       # Define constant to be used by Google Analytics
         # app.constant "SiteName", "/angularAMD"
