@@ -19,18 +19,24 @@ if (reloadServer.indexOf('192.168') == 0 || reloadServer === 'localhost') {
 </head>
 <body>
     <div class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Ann's Market</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href="#/home">Home</a></li>
-        <li id="companyMenu"><a href="#/company">Company</a></li>
-        <li id="serviceMenu"><a href="#/service">Service</a></li>
-        <li><a href="#/tag">Tag</a></li>
-      </ul>
+        <div class="navbar-header">
+            <a class="navbar-brand">Ann's Market</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li id="homeMenu"><a href="#/home">Home</a></li>
+                <li id="companyMenu"><a href="#/company">Company</a></li>
+                <li id="serviceMenu"><a href="#/service">Service</a></li>
+                <li id="tagMenu"><a href="#/tag">Tag</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><button class="btn btn-warning navbar-btn" ng-click="login()" ng-if="loginStatus.status == 'connected'">Connect with Facebook</button></li>
+                <li><button class="btn btn-danger" ng-click="logout()" ng-if="!loginStatus || loginStatus.status != 'connected'">Logout</button></li>
+            </ul>
+        </div>
     </div>
     <div ng-view class="container"></div>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/css/bootflat.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootflat.min.css">
 </body>
 </html>

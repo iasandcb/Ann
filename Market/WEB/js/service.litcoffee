@@ -3,6 +3,8 @@
             # $('body').css({'background-color': 'black'})
             $('#serviceMenu').addClass 'active'
             $('#companyMenu').removeClass 'active'
+            $('#tagMenu').removeClass 'active'
+            $('#homeMenu').removeClass 'active'
             $scope.getList = ->
                 serviceModel.findDataSet {}, (result) ->
                     if result.hasError is false

@@ -1,6 +1,9 @@
     define ['app', 'jquery'], (app, $) ->
         app.register.controller "CompanyCtrl", ["$scope", "companyModel", ($scope, companyModel) ->
-            $('#companyMenu').toggleClass 'active'
+            $('#companyMenu').addClass 'active'
+            $('#serviceMenu').removeClass 'active'
+            $('#tagMenu').removeClass 'active'
+            $('#homeMenu').removeClass 'active'
             $scope.getList = ->
                 companyModel.findDataSet {filter: {}}, (result) ->
                     if result.hasError is false

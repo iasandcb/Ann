@@ -1,7 +1,11 @@
 # 브라우저
 
-    define ['app'], (app) ->
+    define ['app', 'jquery'], (app, $) ->
         app.register.controller "HomeCtrl", ["$scope", "$window", "$location", "ezfb", ($scope, $window, $location, ezfb) ->
+            $('#homeMenu').addClass 'active'
+            $('#tagMenu').removeClass 'active'
+            $('#companyMenu').removeClass 'active'
+            $('#serviceMenu').removeClass 'active'
             updateLoginStatus = (more) ->
                 ezfb.getLoginStatus (res) ->
                     $scope.loginStatus = res

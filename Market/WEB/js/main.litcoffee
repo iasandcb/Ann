@@ -8,7 +8,7 @@
             'ngload': '../lib/requirejs/ngload'
             'ui-bootstrap': '../lib/angular-ui-bootstrap/ui-bootstrap-tpls'
             'jquery': 'http://code.jquery.com/jquery-1.11.0.min'
-            'jquery.bootstrap': 'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+            'jquery.bootstrap': 'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min'
             'ezfb': 'http://pc035860.github.io/angular-easyfb/angular-easyfb.min'
 
             'HomeCtrl': 'home'
