@@ -5,13 +5,16 @@
             $('#companyMenu').removeClass 'active'
             $('#tagMenu').removeClass 'active'
             $('#homeMenu').removeClass 'active'
+
             $scope.getList = ->
-                serviceModel.findDataSet {}, (result) ->
-                    if result.hasError is false
+                await serviceModel.findDataSet {}, defer result
+                if result.hasError is false
+                    $scope.$apply ->
                         $scope.services = result.savedDataSet
-                        $scope.$apply()
-                    return
+                        return
                 return
+
+            $scope.getList()
 
             $scope.register = ->
 
@@ -33,6 +36,7 @@
 
                 await serviceModel.create
                     name: $scope.name
+                    description: $scope.description
                     tags: tagIds
                     , defer result
 

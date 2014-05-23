@@ -10,4 +10,4 @@
 
         SERVER_CONFIG:
             isNotRequiringDBAuth: true
-            dbName: 'test'
+            dbName: 'ann'
