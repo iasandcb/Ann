@@ -1,4 +1,4 @@
-    define ['app', 'jquery'], (app, $) ->
+    define ['app', 'jquery', 'jquery.bootstrap', 'bootflat', 'ui-bootstrap'], (app, $) ->
         app.register.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "serviceModel", "commentModel", ($scope, $routeParams, serviceModel, commentModel) ->
             await serviceModel.getData $routeParams['id'], defer result
             console.log result

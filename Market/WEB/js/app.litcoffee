@@ -18,8 +18,9 @@
         'jquery'
         "angular-route"
         "ezfb"
+        'ui-bootstrap'
     ], (angularAMD, $) ->
-        app = angular.module("ngreq-app", ["ngRoute", 'ezfb'])
+        app = angular.module("ngreq-app", ["ngRoute", 'ezfb', 'ui.bootstrap'])
         app.factory 'companyModel', ->
             Market.CompanyModel()
 
