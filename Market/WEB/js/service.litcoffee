@@ -20,7 +20,11 @@
 
 태그를 넣어준다.
 
-                tags = $scope.tags.split ','
+                tags = []
+
+                if $scope.tags?
+                    tags = $scope.tags.split ','
+
                 tagIds = []
                 console.log tags
                 for tag in tags
@@ -41,6 +45,7 @@
                     , defer result
 
                 if result.hasError is false
+                    $scope.showForm = false
                     $('#result').html('Registration is completed')
                     $scope.getList()
 
