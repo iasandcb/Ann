@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-newer')
 
-  grunt.registerMultiTask 'iced', 'Compile IcedCoffeeScript files into JavaScript', ->
+  grunt.registerMultiTask 'coffee', 'Compile CoffeeScript files into JavaScript', ->
     path = require('path')
     options = @options(
       bare: true
@@ -31,7 +31,7 @@ module.exports = (grunt) ->
           false
     ).map((filepath) ->
         grunt.util.spawn
-            cmd: 'iced'
+            cmd: 'coffee'
             args: ['-l', '-c', '-b', '-m', filepath]
             , (error, result, code) ->
                 grunt.log.error error
@@ -60,7 +60,7 @@ module.exports = (grunt) ->
     srcCode = grunt.file.read srcFile
     try
     #   grunt.log.warn options
-      return require('iced-coffee-script').compile srcCode, options
+      return require('coffee-script').compile srcCode, options
     catch e
       grunt.log.error e
       grunt.fail.warn 'CoffeeScript failed to compile.'
@@ -70,7 +70,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    iced:
+    coffee:
       all:
         options:
           runtime: 'none'
@@ -89,7 +89,7 @@ module.exports = (grunt) ->
     watch:
         coffeescript:
             files: srcFiles
-            tasks: ["newer:iced:all"]
+            tasks: ["newer:coffee:all"]
         javascript:
             files: "assets/**/*.js"
             tasks: ["uglify:dev"]

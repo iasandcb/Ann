@@ -1,18 +1,3 @@
-    iced =
-        Deferrals : class
-            constructor: (@continuation) ->
-                @count = 1
-                @ret = null
-            _fulfill : ->
-                @continuation @ret if not --@count
-            defer : (defer_params) ->
-                @count++
-                (inner_params...) =>
-                    defer_params?.assign_fn?.apply(null, inner_params)
-                    @_fulfill()
-        findDeferral : (args) -> null
-        trampoline : (fn) -> fn()
-
     define [
         "angularAMD"
         'jquery'

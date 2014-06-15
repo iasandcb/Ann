@@ -1,13 +1,6 @@
     define ['app', 'jquery', 'jquery.bootstrap', 'bootflat', 'ui-bootstrap'], (app, $) ->
         app.register.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "serviceModel", "commentModel", ($scope, $routeParams, serviceModel, commentModel) ->
-            await serviceModel.getData $routeParams['id'], defer result
-            console.log result
-            $scope.$apply ->
-                $scope.service = result.savedData
-                return
-
-            $scope.getList = ->
-                console.log 'sss'
+            getList = ->
                 commentModel.findDataSet {filter: {service: $scope.service.id}}, (result) ->
                     console.log result
                     if result.hasError is false
@@ -17,21 +10,28 @@
                     return
                 return
 
-            $scope.getList()
+            serviceModel.getData $routeParams['id'], (result) ->
+                console.log result
+                $scope.$apply ->
+                    $scope.service = result.savedData
+                    getList()
+                    return
+                return
 
             $scope.register = ->
-                await commentModel.create
+                commentModel.create
                     author: $scope.author
                     content: $scope.content
                     service: $scope.service.id
-                    , defer result
+                    , (result) ->
+                        if result.hasError is false
+                            $('#result').html('Registration is completed')
+                            $scope.author = $scope.content = ''
+                            getList()
 
-                if result.hasError is false
-                    $('#result').html('Registration is completed')
-                    $scope.author = $scope.content = ''
-                    $scope.getList()
-
+                        return
                 return
+
             return
             ]
         return
