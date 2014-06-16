@@ -7,7 +7,7 @@
             $('#companyMenu').removeClass 'active'
             $('#serviceMenu').removeClass 'active'
 
-            serviceModel.findDataSet
+            serviceModel.find
                 start: 0
                 count: 4
                 , (result) ->

@@ -10,11 +10,11 @@
             chosenTags = []
 
             $scope.getList = ->
-                await tagModel.findDataSet {sort: {popularity: -1}}, defer result
-                if result.savedDataSet?
-                    $scope.$apply ->
-                        $scope.tags = result.savedDataSet
-                        return
+                tagModel.find {sort: {popularity: -1}}, (result) ->
+                    if result.savedDataSet?
+                        $scope.$apply ->
+                            $scope.tags = result.savedDataSet
+                            return
                 return
 
             $scope.chooseTag = ($event, tag) ->
@@ -38,17 +38,18 @@
 
                 console.log chosenTags
 
-                await serviceModel.findDataSet
+                serviceModel.find
                     filter:
                         tags: {$all: chosenTags}
-                    , defer result
-
-                if result.savedDataSet?
-                    $scope.$apply ->
-                        $scope.services = result.savedDataSet
+                    , (result) ->
+                        if result.savedDataSet?
+                            $scope.$apply ->
+                                $scope.services = result.savedDataSet
+                                return
                         return
 
                 return
+                
             return
             ]
         return

@@ -1,7 +1,7 @@
     define ['app', 'jquery', 'jquery.bootstrap', 'bootflat', 'ui-bootstrap'], (app, $) ->
         app.register.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "serviceModel", "commentModel", ($scope, $routeParams, serviceModel, commentModel) ->
             getList = ->
-                commentModel.findDataSet {filter: {service: $scope.service.id}}, (result) ->
+                commentModel.find {filter: {service: $scope.service.id}}, (result) ->
                     console.log result
                     if result.hasError is false
                         $scope.$apply ->
@@ -10,7 +10,7 @@
                     return
                 return
 
-            serviceModel.getData $routeParams['id'], (result) ->
+            serviceModel.get $routeParams['id'], (result) ->
                 console.log result
                 $scope.$apply ->
                     $scope.service = result.savedData

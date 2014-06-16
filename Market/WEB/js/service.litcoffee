@@ -7,11 +7,12 @@
             $('#homeMenu').removeClass 'active'
 
             $scope.getList = ->
-                await serviceModel.findDataSet {}, defer result
-                if result.hasError is false
-                    $scope.$apply ->
-                        $scope.services = result.savedDataSet
-                        return
+                serviceModel.find {}, (result) ->
+                    if result.hasError is false
+                        $scope.$apply ->
+                            $scope.services = result.savedDataSet
+                            return
+                    return
                 return
 
             $scope.getList()
@@ -28,28 +29,32 @@
                 tagIds = []
                 console.log tags
                 for tag in tags
-                    await tagModel.findData {name: tag}, defer tResult
-                    if tResult.savedData?
-                        tagId = tResult.savedData.id
-                    else
-                        await tagModel.create {name: tag}, defer cResult
-                        tagId = cResult.savedData.id
-                    tagIds.push tagId
+                    tagModel.get {filter:{name: tag}}, (result) ->
+                        if result.savedData?
+                            tagId = result.savedData.id
+                            tagIds.push tagId
+                        else
+                            tagModel.create {name: tag}, (result) ->
+                                tagId = result.savedData.id
+                                tagIds.push tagId
+                                return
+                        return
 
 태그를 수정할 수도 있을 것이다.
 
-                await serviceModel.create
+                serviceModel.create
                     name: $scope.name
                     description: $scope.description
                     tags: tagIds
-                    , defer result
-
-                if result.hasError is false
-                    $scope.showForm = false
-                    $('#result').html('Registration is completed')
-                    $scope.getList()
+                    , (result) ->
+                        if result.hasError is false
+                            $scope.showForm = false
+                            $('#result').html('Registration is completed')
+                            $scope.getList()
+                        return
 
                 return
+                
             return
             ]
         return
