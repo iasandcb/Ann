@@ -6,18 +6,18 @@
             Market.ServiceModel()
             Market.CommentModel()
             Market.TagModel()
-            jn = require 'jasmine-node'
-            Market.REQUEST 'test', (method, params, paramStr, headers, response, serveErrorPage) ->
-                jn.run
-                    specFolders:['Market/spec']
-                    watchFolders: []
-                    coffee: true
-                    extensions: 'litcoffee'
-
-                response
-                    content: 'ok'
-                    contentType : 'text/plain'
-                    encoding : 'utf-8'
-                return
-            return
+            # jn = require 'jasmine-node'
+            # Market.REQUEST 'test', (method, params, paramStr, headers, response, serveErrorPage) ->
+            #     jn.run
+            #         specFolders:['Market/spec']
+            #         watchFolders: []
+            #         coffee: true
+            #         extensions: 'litcoffee'
+            #
+            #     response
+            #         content: 'ok'
+            #         contentType : 'text/plain'
+            #         encoding : 'utf-8'
+            #     return
+            # return
     )
