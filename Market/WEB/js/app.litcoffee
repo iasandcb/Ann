@@ -101,4 +101,3 @@
       # Create function to link to GitHub
       # Bootstrap Angular when DOM is ready
         angularAMD.bootstrap app
-        app
