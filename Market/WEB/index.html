@@ -35,7 +35,8 @@ if (reloadServer.indexOf('192.168') == 0 || reloadServer === 'localhost') {
                  ng-if="!loginStatus || loginStatus.status != 'connected'"
                 -->
                 <li><button id="loginButton" class="btn btn-warning navbar-btn" ng-click="login()">Connect with Facebook</button></li>
-                <li><button id="logoutButton" class="btn btn-danger" ng-click="logout()">Logout</button></li>
+                <li><a target="_blank" href="http://facebook.com/{{me.id}}">{{me.name}}</a></li>
+                <li><button id="logoutButton" class="btn btn-danger" ng-click="logout()">Log out</button></li>
             </ul>
         </div>
     </div>

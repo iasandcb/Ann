@@ -45,7 +45,7 @@
                 )).otherwise redirectTo: "/home"
             ]
 
-        app.controller "MenuCtrl", ($scope, $window, $location, $timeout, ezfb) ->
+        app.controller "MenuCtrl", ($scope, ezfb) ->
             $scope.safeApply = (fn) ->
                 phase = @$root.$$phase
                 if phase is "$apply" or phase is "$digest"
@@ -61,6 +61,7 @@
 
             updateLoginStatus = (more) ->
                 ezfb.getLoginStatus (res) ->
+                    console.log res
                     $scope.loginStatus = res
                     if res.status is 'connected'
                         $('#loginButton').hide()
@@ -74,7 +75,10 @@
                 return
 
             updateApiMe = ->
-                console.log 'me'
+                ezfb.api '/me', (res) ->
+                    console.log 'me', res
+                    $scope.me = res
+                    return
                 return
 
             updateLoginStatus updateApiMe
