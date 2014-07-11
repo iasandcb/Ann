@@ -30,8 +30,17 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <ul>
-            <li ng-repeat="comment in comments">{{comment.author}} {{comment.content}}</a>
+        <h2>Comments</h2>
+        <ul class="media-list">
+            <li class="media" ng-repeat="comment in comments">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-rounded" ng-src="https://graph.facebook.com/{{comment.authorId}}/picture?width=20&height=20">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{comment.authorName}}</h4>
+                    <p>{{comment.createTime}}</p>
+                    <p>{{comment.content}}</p>
+                </div>
             </li>
         </ul>
     </div>

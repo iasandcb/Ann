@@ -21,7 +21,8 @@
 
             $scope.register = ->
                 commentModel.create
-                    author: $scope.author
+                    authorId: $sessionStorage.me.id
+                    authorName: $sessionStorage.me.name
                     content: $scope.content
                     service: $scope.service.id
                     , (result) ->
