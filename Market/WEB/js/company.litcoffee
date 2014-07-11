@@ -1,5 +1,5 @@
     define ['app', 'jquery'], (app, $) ->
-        app.register.controller "CompanyCtrl", ["$scope", "companyModel", ($scope, companyModel) ->
+        app.controller "CompanyCtrl", ["$scope", "companyModel", ($scope, companyModel) ->
             $('#companyMenu').addClass 'active'
             $('#serviceMenu').removeClass 'active'
             $('#tagMenu').removeClass 'active'

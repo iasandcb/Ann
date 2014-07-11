@@ -1,5 +1,5 @@
     define ['app', 'jquery'], (app, $) ->
-        app.register.controller "TagCtrl", ["$scope", "serviceModel", "tagModel", ($scope, serviceModel, tagModel) ->
+        app.controller "TagCtrl", ["$scope", "serviceModel", "tagModel", ($scope, serviceModel, tagModel) ->
             $('#tagMenu').addClass 'active'
             $('#homeMenu').removeClass 'active'
             $('#companyMenu').removeClass 'active'
@@ -49,7 +49,7 @@
                         return
 
                 return
-                
+
             return
             ]
         return

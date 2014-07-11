@@ -8,6 +8,6 @@
             isDevMode: true
             isMobileFullScreen: true
 
-        SERVER_CONFIG:
+        NODE_CONFIG:
             isNotRequiringDBAuth: true
             dbName: 'ann'
