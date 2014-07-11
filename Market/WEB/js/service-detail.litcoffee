@@ -27,7 +27,7 @@
                     service: $scope.service.id
                     , (result) ->
                         if result.hasError is false
-                            $('#result').html('Registration is completed')
+                            $scope.result = 'Registration is completed'
                             $scope.author = $scope.content = ''
                             getList()
 
