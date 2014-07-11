@@ -11,6 +11,7 @@
             'jquery.bootstrap': 'http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min'
             'ezfb': 'http://pc035860.github.io/angular-easyfb/angular-easyfb.min'
             'async': '../lib/async'
+            'ngStorage': '../lib/ngStorage.min'
 
             'HomeCtrl': 'home'
             'CompanyCtrl': 'company'
@@ -24,6 +25,7 @@
             'angular-route': ['angular']
             'ui-bootstrap': ['angular']
             'ezfb': ['angular']
+            'ngStorage': ['angular']
             'jquery.bootstrap': ['jquery']
             'bootflat': ['jquery.bootstrap']
 

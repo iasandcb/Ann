@@ -1,5 +1,6 @@
     define ['app', 'jquery', 'jquery.bootstrap', 'bootflat', 'ui-bootstrap'], (app, $) ->
-        app.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "serviceModel", "commentModel", ($scope, $routeParams, serviceModel, commentModel) ->
+        app.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "$sessionStorage", "serviceModel", "commentModel", ($scope, $routeParams, $sessionStorage, serviceModel, commentModel) ->
+            console.log $sessionStorage.me
             getList = ->
                 commentModel.find {filter: {service: $scope.service.id}}, (result) ->
                     console.log result

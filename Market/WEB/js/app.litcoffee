@@ -2,10 +2,11 @@
         "angularAMD"
         'jquery'
         "angular-route"
+        'ngStorage'
         "ezfb"
         'ui-bootstrap'
     ], (angularAMD, $) ->
-        app = angular.module("ngreq-app", ["ngRoute", 'ezfb', 'ui.bootstrap'])
+        app = angular.module("ngreq-app", ["ngRoute", 'ngStorage', 'ezfb', 'ui.bootstrap'])
         app.factory 'companyModel', ->
             Market.CompanyModel()
 
@@ -45,7 +46,7 @@
                 )).otherwise redirectTo: "/home"
             ]
 
-        app.controller "MenuCtrl", ($scope, ezfb) ->
+        app.controller "MenuCtrl", ($scope, ezfb, $sessionStorage) ->
             $scope.safeApply = (fn) ->
                 phase = @$root.$$phase
                 if phase is "$apply" or phase is "$digest"
@@ -77,6 +78,7 @@
             updateApiMe = ->
                 ezfb.api '/me', (res) ->
                     console.log 'me', res
+                    $sessionStorage.me = res
                     $scope.me = res
                     return
                 return
