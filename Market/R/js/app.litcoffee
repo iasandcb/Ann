@@ -4,6 +4,7 @@
         "angular-route"
         'ngStorage'
         "ezfb"
+        'bootflat'
         'ui-bootstrap'
     ], (angularAMD, $) ->
         app = angular.module("ngreq-app", ["ngRoute", 'ngStorage', 'ezfb', 'ui.bootstrap'])
