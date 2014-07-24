@@ -1,8 +1,5 @@
-COFFEESITE/
-UPPERSITE/
 Market/SERVER/node_modules/
-Market/WEB/node_modules/
-Market/WEB/lib/
-Market/WEB/js/*.js
-Market/WEB/js/*.map
-*.__UPPERSITE_COMPILED
+Market/R/node_modules/
+Market/R/lib/
+Market/R/js/*.js
+Market/R/js/*.map

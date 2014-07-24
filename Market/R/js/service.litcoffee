@@ -7,12 +7,24 @@
             $('#homeMenu').removeClass 'active'
 
             $scope.getList = ->
-                serviceModel.find {}, (result) ->
-                    if result.hasError is false
+                console.log serviceModel
+                
+                console.log serviceModel.find
+                serviceModel.find {},
+                    success: (result) ->
+                        console.log 'result', result
                         $scope.$apply ->
-                            $scope.services = result.savedDataSet
+                            $scope.services = result
                             return
-                    return
+                        return
+
+                    notValid: (message) ->
+                        console.log 'not valid', message
+                        return
+
+                    error: (message) ->
+                        console.log 'error', message
+                        return
                 return
 
             $scope.getList()
@@ -30,12 +42,12 @@
                 console.log tags
                 for tag in tags
                     tagModel.get {filter:{name: tag}}, (result) ->
-                        if result.savedData?
-                            tagId = result.savedData.id
+                        if result?
+                            tagId = result.id
                             tagIds.push tagId
                         else
                             tagModel.create {name: tag}, (result) ->
-                                tagId = result.savedData.id
+                                tagId = result.id
                                 tagIds.push tagId
                                 return
                         return
@@ -47,10 +59,9 @@
                     description: $scope.description
                     tags: tagIds
                     , (result) ->
-                        if result.hasError is false
-                            $scope.showForm = false
-                            $('#result').html('Registration is completed')
-                            $scope.getList()
+                        $scope.showForm = false
+                        $('#result').html('Registration is completed')
+                        $scope.getList()
                         return
 
                 return

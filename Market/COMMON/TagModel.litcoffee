@@ -1,10 +1,9 @@
-    Market.TagModel = CLASS(
+Tag
+
+    Market.TagModel = OBJECT
 
         preset : ->
             Market.MODEL
 
-        params : (cls) ->
-
+        params : ->
             name : 'Tag'
-
-    )

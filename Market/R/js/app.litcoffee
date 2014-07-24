@@ -8,16 +8,16 @@
     ], (angularAMD, $) ->
         app = angular.module("ngreq-app", ["ngRoute", 'ngStorage', 'ezfb', 'ui.bootstrap'])
         app.factory 'companyModel', ->
-            Market.CompanyModel()
+            Market.CompanyModel
 
         app.factory 'serviceModel', ->
-            Market.ServiceModel()
+            Market.ServiceModel
 
         app.factory 'commentModel', ->
-            Market.CommentModel()
+            Market.CommentModel
 
         app.factory 'tagModel', ->
-            Market.TagModel()
+            Market.TagModel
 
         app.config (ezfbProvider) ->
             ezfbProvider.setInitParams

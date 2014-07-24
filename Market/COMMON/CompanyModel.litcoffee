@@ -26,13 +26,10 @@
 
 텍스트 내용
 
-    Market.CompanyModel = CLASS(
+    Market.CompanyModel = OBJECT
 
         preset : ->
             Market.MODEL
 
-        params : (cls) ->
-
+        params : ->
             name : 'Company'
-
-    )

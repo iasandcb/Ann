@@ -1,10 +1,9 @@
-    Market.CommentModel = CLASS(
+Comment
+
+    Market.CommentModel = OBJECT
 
         preset : ->
             Market.MODEL
 
-        params : (cls) ->
-
+        params : ->
             name : 'Comment'
-
-    )

@@ -1,10 +1,9 @@
-    Market.ServiceModel = CLASS(
+Service
+
+    Market.ServiceModel = OBJECT
 
         preset : ->
             Market.MODEL
 
-        params : (cls) ->
-
+        params : ->
             name : 'Service'
-
-    )
