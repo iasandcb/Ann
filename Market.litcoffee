@@ -8,7 +8,6 @@
             isDevMode: true
             webServerPort: 8889
             webSocketServerPort: 8890
-            webSocketFixServerPort: 8891
 
         NODE_CONFIG:
             dbName: 'ann'

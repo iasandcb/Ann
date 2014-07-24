@@ -1,22 +1,19 @@
     define ['app', 'jquery', 'jquery.bootstrap', 'bootflat', 'ui-bootstrap'], (app, $) ->
-        app.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "$sessionStorage", "serviceModel", "commentModel", ($scope, $routeParams, $sessionStorage, serviceModel, commentModel) ->
+        app.controller "ServiceDetailCtrl", ["$scope", "$routeParams", "$sessionStorage", "utils", "serviceModel", "commentModel", ($scope, $routeParams, $sessionStorage, utils, serviceModel, commentModel) ->
             console.log $sessionStorage.me
+            utils.injectScope $scope, commentModel, serviceModel
+            commentModel.scope = $scope
+            serviceModel.scope = $scope
             getList = ->
                 commentModel.find {filter: {service: $scope.service.id}}, (result) ->
                     console.log result
-                    if result.hasError is false
-                        $scope.$apply ->
-                            $scope.comments = result.savedDataSet
-                            return
+                    $scope.comments = result
                     return
                 return
 
             serviceModel.get $routeParams['id'], (result) ->
-                console.log result
-                $scope.$apply ->
-                    $scope.service = result.savedData
-                    getList()
-                    return
+                $scope.service = result
+                getList()
                 return
 
             $scope.register = ->
@@ -26,11 +23,9 @@
                     content: $scope.content
                     service: $scope.service.id
                     , (result) ->
-                        if result.hasError is false
-                            $scope.result = 'Registration is completed'
-                            $scope.author = $scope.content = ''
-                            getList()
-
+                        $scope.result = 'Registration is completed'
+                        $scope.author = $scope.content = ''
+                        getList()
                         return
                 return
 

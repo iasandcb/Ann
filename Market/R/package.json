@@ -4,6 +4,7 @@
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-newer": "^0.7.0"
+    "grunt-newer": "^0.7.0",
+    "coffee-script": "^1.7.1"
   }
 }

@@ -7,6 +7,15 @@
         'ui-bootstrap'
     ], (angularAMD, $) ->
         app = angular.module("ngreq-app", ["ngRoute", 'ngStorage', 'ezfb', 'ui.bootstrap'])
+
+        app.factory 'utils', ->
+            injectScope: () ->
+                scope = arguments[0]
+                for i in [1...arguments.length]
+                    arguments[i].scope = scope
+
+                return
+
         app.factory 'companyModel', ->
             Market.CompanyModel
 

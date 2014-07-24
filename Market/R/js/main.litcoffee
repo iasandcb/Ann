@@ -1,8 +1,8 @@
     require.config
         baseUrl: "js"
         paths:
-            'angular': 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min'
-            'angular-route': 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min'
+            'angular': 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min'
+            'angular-route': 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-route.min'
             'angularAMD': '../lib/requirejs/angularAMD'
             'ngload': '../lib/requirejs/ngload'
             'ui-bootstrap': '../lib/angular-ui-bootstrap/ui-bootstrap-tpls'
