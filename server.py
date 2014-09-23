@@ -9,6 +9,7 @@ import tornado.websocket
 import json
 import sys
 import datetime
+from db.services import get_services
 
 dirname = os.path.dirname(__file__)
 print('--')
@@ -53,12 +54,13 @@ class TimeHandler(tornado.web.RequestHandler):
 
 class ServicesHandler(tornado.web.RequestHandler):
     # read with query(condition)
-    def get(self, market_id):
+    def get(self):
         self.set_header("Content-Type", "application/json")
+        self.write(JSONEncoder().encode(get_services()))
 
 class ServiceHandler(tornado.web.RequestHandler):
     # read with query(condition)
-    def get(self):
+    def get(self, market_id):
         self.set_header("Content-Type", "application/json")
 
 class IndexDotHTMLAwareStaticFileHandler(tornado.web.StaticFileHandler):
