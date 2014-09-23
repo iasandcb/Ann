@@ -27,6 +27,22 @@ Go to http://www.mongodb.org/downloads and get the latest.
 
     python3 server.py
 
-and
-
     http://localhost:9999
+
+## Service
+
+### Python
+
+http://ubuntuhandbook.org/index.php/2014/05/install-python-3-3-5-or-3-4-via-ppa-in-ubuntu-14-04-12-04/
+
+#### PIP
+
+    sudo apt-get install python3-pip
+
+### MongoDB
+
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
+### Supervisord
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
