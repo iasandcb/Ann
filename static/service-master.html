@@ -1,0 +1,19 @@
+<material-content>
+
+    <material-list>
+
+      <material-item ng-repeat="service in services">
+        <material-item-content>
+          <div class="material-tile-content">
+            <h2>{{service.name}}</h2>
+            <h3>{{service.creator}}</h3>
+            <p>
+              {{service.description}}
+            </p>
+          </div>
+        </material-item-content>
+      </material-item>
+
+    </material-list>
+
+</material-content>
