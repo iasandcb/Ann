@@ -1,58 +1,32 @@
-# MoMAK 2014
+# Ann
 
-## 시작하기
+## Prepare
 
-### Node.js 설치
+### Python 3
 
-http://nodejs.org
+Go to http://python.org and get Python 3.
 
-#### nodemon 설치
+#### pymongo
 
-명령 프롬포트 창에서
+    pip3 install pymongo
 
-    sudo npm install -g nodemon
+#### Tornado
 
-#### coffeescript 설치
+    pip3 install tornado
 
-명령 프롬포트 창에서
+### MongoDB
 
-    sudo npm install -g coffee-script
+Go to http://www.mongodb.org/downloads and get the latest.
 
-### UPPERSITE 설치
-
-http://uppercase.io/#UPPERSITE
-
-### COFFEESITE 설치
-
-https://github.com/BTNcafe/COFFEESITE/releases
-
-### UUTIL 설치
-
-https://github.com/BTNcafe/UUTIL/releases
-
-### DB 설치
-
-http://www.mongodb.org/downloads
-
-에서 받아 압축을 풀고, 도큐먼트 폴더 밑에 mongodb 라는 폴더를 만든 다음,
-터미널에서 푼 디렉토리 밑의 bin 디렉토리에서
+    mkdir ~/Documents/mongodb
 
     ./mongod --dbpath ~/Documents/mongodb
 
-를 실행한다.
 
-### 서버 실행
+## Run
 
-명령 프롬프트 창에서
+    python3 server.py
 
-    nodemon MoMAK.litcoffee
+and
 
-으로 띄우고 나서 브라우저로
-
-    http://localhost:8889
-
-을 연다.
-
-## 초기화
-
-http://localhost:8889 에서 자키로 들어가서 필요한 데이터를 로드한다.
+    http://localhost:9999
