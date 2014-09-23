@@ -40,6 +40,7 @@ class Application(tornado.web.Application):
         ]
         settings = {
             "static_path": STATIC_PATH,
+            "compress_response": True,
             "debug": True,
             # "static_url_prefix": "/static/",
             "static_handler_class" : IndexDotHTMLAwareStaticFileHandler
