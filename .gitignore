@@ -1,5 +1,10 @@
-Market/SERVER/node_modules/
-Market/R/node_modules/
-Market/R/lib/
-Market/R/js/*.js
-Market/R/js/*.map
+static/node_modules/
+.idea
+db/*.pyc
+db/__pycache__/
+tests/__pycache__/
+tests/
+static/.sass-cache/
+db/config.py
+db/__pycache__/
+__pycache__/
