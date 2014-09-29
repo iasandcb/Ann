@@ -18,6 +18,3 @@ def get_services():
         services.append(service)
 
     return services
-
-services = get_services()
-print(services[0])
