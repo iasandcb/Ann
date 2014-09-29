@@ -1,4 +1,4 @@
-var annApp = angular.module('annApp', ['ngMaterial', 'ngRoute', 'annControllers']);
+var annApp = angular.module('annApp', ['ngMaterial', 'ngRoute', 'ngTouch', 'annControllers']);
 
 annApp.config(['$routeProvider',
     function($routeProvider) {
@@ -16,13 +16,13 @@ annApp.factory('menu', function() {
     var sections = [
     {
         name: 'creations'
-    }
+    },
     {
         name: 'creators'
-    }
+    },
     {
         name: 'tags'
-    }
+    },
     {
         name: 'profile'
     }
