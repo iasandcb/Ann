@@ -11,10 +11,10 @@ from .config import *
 client = MongoClient()
 db = client[db_name]
 
-def get_services():
-    services = []
+def get_creations():
+    creations = []
 
-    for service in db.services.find():
-        services.append(service)
+    for creation in db.creations.find():
+        creations.append(creation)
 
-    return services
+    return creations

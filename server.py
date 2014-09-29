@@ -9,7 +9,7 @@ import tornado.websocket
 import json
 import sys
 import datetime
-from db.services import get_services
+from db.creations import get_creations
 
 dirname = os.path.dirname(__file__)
 print('--')
@@ -35,8 +35,8 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/time", TimeHandler),
-            (r"/services", ServicesHandler), # plural 복수 REST 방식
-            (r"/services/(.*)", ServiceHandler), # singular 단수
+            (r"/creations", CreationsHandler), # plural 복수 REST 방식
+            (r"/creations/(.*)", CreationHandler), # singular 단수
         ]
         settings = {
             "static_path": STATIC_PATH,
@@ -53,13 +53,13 @@ class TimeHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "application/json")
         self.write(JSONEncoder().encode({'time': datetime.datetime.now()}))
 
-class ServicesHandler(tornado.web.RequestHandler):
+class CreationsHandler(tornado.web.RequestHandler):
     # read with query(condition)
     def get(self):
         self.set_header("Content-Type", "application/json")
-        self.write(JSONEncoder().encode(get_services()))
+        self.write(JSONEncoder().encode(get_creations()))
 
-class ServiceHandler(tornado.web.RequestHandler):
+class CreationHandler(tornado.web.RequestHandler):
     # read with query(condition)
     def get(self, market_id):
         self.set_header("Content-Type", "application/json")

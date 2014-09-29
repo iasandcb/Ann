@@ -14,7 +14,7 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
       </head>
-<body layout="horizontal">
+<body layout="horizontal" ng-controller="MenuCtrl" >
 
   <material-sidenav layout="vertical" class="material-sidenav-left material-whiteframe-z3" component-id="left">
 
@@ -27,14 +27,9 @@
     <material-content flex>
       <div ng-repeat="section in menu.sections">
 
-        <button class="menu-item menu-title" ng-class="{active: menu.isSectionSelected(section)}" ng-click="menu.toggleSelectSection(section)" ink-ripple>
+        <button class="menu-item menu-title" ng-class="{active: menu.isSectionSelected(section)}" ng-click="menu.selectSection(section)" ink-ripple>
           {{section.name}}
         </button>
-
-        <button class="menu-item menu-sub-item" ng-show="menu.isSectionSelected(section)" ng-repeat="page in section.pages" ng-class="{active: menu.isPageSelected(section, page)}" ng-click="openPage(section, page)" ink-ripple>
-          <span ng-bind="page.humanName || page.name"></span>
-        </button>
-
       </div>
     </material-content>
 
@@ -56,14 +51,6 @@
         <h3 ng-bind="menu.currentPage.humanName || menu.currentPage.name || 'Home'" flex>
         </h3>
       </div>
-
-      <div class="material-toolbar-tools api-options-bar" ng-if="currentDoc && currentDoc.docType === 'readme'">
-        <span flex></span>
-        <material-button ng-repeat="doc in menuDocs(currentComponent)" ng-href="#{{doc.url}}">
-          <span ng-bind="'&lt;'+ (doc.humanName || doc.name) + '&gt;'"></span>
-        </material-button>
-      </div>
-
     </material-toolbar>
 
     <material-content ng-view scroll-y flex class="material-content-padding"></material-content>
